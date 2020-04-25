@@ -2,6 +2,8 @@ package com.grcy.movieSearchEngine;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Test {
@@ -18,8 +20,50 @@ public class Test {
         movies.add(movie4);
 
         SearchEngine engine = new SearchEngine(movies);
-        System.out.println(engine.printMovieInfo("Lejdis"));
-        System.out.println(engine.printMovieInfo("E=mc2"));
+        System.out.println(engine.printCreationInfo("Lejdis"));
+        System.out.println(engine.printCreationInfo("E=mc2"));
 
+        System.out.println(engine.printCreationInfoOptional("Testosteron"));
+        System.out.println(engine.printCreationInfoOptional("Fuks"));
+
+        System.out.println(engine.printCreationInfoException("Poranek kojota"));
+        System.out.println(engine.printCreationInfoException("Sztos"));
+
+        System.out.println("=============");
+        List<Book> books = new ArrayList<>();
+        Book book1 = new Book("Czarownik Iwanow", "Andrzej Pilipiuk", LocalDate.parse("2012-03-02"));
+        Book book2 = new Book("Achaja", "Andrzej Ziemiański", LocalDate.parse("2008-03-02"));
+        Book book3 = new Book("Czysty kod", "Robert Martin", LocalDate.parse("2005-03-02"));
+        Book book4 = new Book("Symfonia C++", "Jerzy Grębosz", LocalDate.parse("1996-03-02"));
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
+        books.add(book4);
+
+        SearchEngine engine4Books = new SearchEngine(books);
+        System.out.println(engine4Books.printCreationInfo("Achaja"));
+        System.out.println(engine4Books.printCreationInfo("Pasja C++"));
+
+
+        /*       System.out.println("======================");
+        System.out.println("List unsorted:");
+        movies.forEach(x -> System.out.println(x.getDescriptionData()));
+
+        System.out.println("======================");
+        System.out.println("List sorted by premiere date:");
+        Collections.sort(movies, new MovieByPremiereDate());
+        movies.forEach(x -> System.out.println(x.getDescriptionData()));
+
+
+        System.out.println("======================");
+        System.out.println("List sorted by title:");
+        movies.sort(Comparator.comparing(Movie::getTitle));
+        movies.forEach(x -> System.out.println(x.getDescriptionData()));
+
+        System.out.println("======================");
+        System.out.println("List sorted by director and title:");
+        movies.sort(Comparator.comparing(Movie::getCreator).thenComparing(Movie::getTitle));
+        movies.forEach(x -> System.out.println(x.getDescriptionData()));
+*/
     }
 }
