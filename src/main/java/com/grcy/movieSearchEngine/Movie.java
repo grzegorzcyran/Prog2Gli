@@ -2,7 +2,7 @@ package com.grcy.movieSearchEngine;
 
 import java.time.LocalDate;
 
-public class Movie extends Creation {
+public class Movie extends Creation implements Comparable<Movie>{
     private String title;
     private String director;
     private LocalDate premiereDate;
@@ -33,4 +33,10 @@ public class Movie extends Creation {
         return this.title + " " + this.director + " " + this.premiereDate;
     }
 
+
+    //określamy naturalne porządkowanie obiektów danej klasy
+    @Override
+    public int compareTo(Movie movie) {
+        return this.title.compareTo(movie.getTitle());
+    }
 }

@@ -33,4 +33,12 @@ public class Book extends Creation {
         return this.title + " " + this.author + " " + this.premiereDate;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", premiereDate=" + premiereDate +
+                '}';
+    }
 }

@@ -45,16 +45,34 @@ public class Test {
         System.out.println(engine4Books.printCreationInfo("Pasja C++"));
 
 
-        /*       System.out.println("======================");
+        System.out.println("======================");
         System.out.println("List unsorted:");
-        movies.forEach(x -> System.out.println(x.getDescriptionData()));
+        movies.forEach(
+                element -> System.out.println(element.getDescriptionData()));
+
+        System.out.println("======================");
+        movies.forEach(System.out::println);
+
+        System.out.println("======================");
+        books.forEach(el -> System.out.println(el.getDescriptionData()));
+
+        System.out.println("======================");
+        books.forEach(System.out::println);
+
 
         System.out.println("======================");
         System.out.println("List sorted by premiere date:");
         Collections.sort(movies, new MovieByPremiereDate());
         movies.forEach(x -> System.out.println(x.getDescriptionData()));
 
+        System.out.println("======================");
+        System.out.println("List sorted natural:");
+        Collections.sort(movies);
+        movies.forEach(x -> System.out.println(x.getDescriptionData()));
 
+
+
+/*
         System.out.println("======================");
         System.out.println("List sorted by title:");
         movies.sort(Comparator.comparing(Movie::getTitle));
@@ -64,6 +82,17 @@ public class Test {
         System.out.println("List sorted by director and title:");
         movies.sort(Comparator.comparing(Movie::getCreator).thenComparing(Movie::getTitle));
         movies.forEach(x -> System.out.println(x.getDescriptionData()));
+
+        //sortowanie książek: 1: po autorze, 2 : po autorze i dacie wydania
+        System.out.println("======================");
+        System.out.println("Books sorted by athor:");
+        books.sort(Comparator.comparing(Book::getCreator));
+        books.forEach(x -> System.out.println(x.getDescriptionData()));
+
+        System.out.println("======================");
+        System.out.println("Books sorted by author and date:");
+        books.sort(Comparator.comparing(Book::getCreator).thenComparing(Book::getPremiereDate));
+        books.forEach(x -> System.out.println(x.getDescriptionData()));
 */
     }
 }
