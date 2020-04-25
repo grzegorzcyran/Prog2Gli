@@ -6,35 +6,36 @@ import java.util.Optional;
 public class SearchEngine<E extends Creation> {
     private List<E> creations;
 
-    public SearchEngine(List<E> movies) {
-        this.creations = movies;
+    public SearchEngine(List<E> creations) {
+        this.creations = creations;
     }
 
-    private E searchMovie(String title) {
+    private E searchCreation(String title) {
         return creations.stream()
-                .filter(movie -> movie.getTitle().equals(title))
+                .filter(c -> c.getTitle().equals(title))
                 .findAny()
                 .orElse((E) Creation.DEFAULT_CREATION);
     }
 
-    public String printMovieInfo(String title) {
-        E creation = searchMovie(title);
-        if("".equals(creation.getTitle())) {
-            return "Movie not found";
+    public String printCreationInfo(String title) {
+        E creation = searchCreation(title);
+        //if("".equals(creation.getTitle())) {
+        if(Creation.DEFAULT_CREATION == creation) {
+            return "Creation not found";
         }
         return creation.getTitle() + " " + creation.getCreator() + " " + creation.getPremiereDate();
     }
 
 
 
-    private Optional<E> searchMovieOptional(String title) {
+    private Optional<E> searchCreationOptional(String title) {
         return creations.stream()
                 .filter(seek -> seek.getTitle().equals(title))
                 .findAny();
     }
 
-    public String printMovieInfoOptional(String title) {
-        Optional<E> creation = searchMovieOptional(title);
+    public String printCreationInfoOptional(String title) {
+        Optional<E> creation = searchCreationOptional(title);
         if(creation.isPresent()) {
             //creation.get pobiera zawartość optionala
             return creation.get().getTitle() + " " + creation.get().getCreator() + " " + creation.get().getPremiereDate();
@@ -43,19 +44,19 @@ public class SearchEngine<E extends Creation> {
     }
 
 
-    private E searchMovieException (String title) throws MovieNotFoundException {
+    private E searchCreationException (String title) throws CreationNotFoundException {
         return creations.stream()
                 .filter(seek -> seek.getTitle().equals(title))
                 .findAny()
-                .orElseThrow(MovieNotFoundException::new);
+                .orElseThrow(CreationNotFoundException::new);
     }
 
-    public String printMovieInfoException(String title) {
+    public String printCreationInfoException(String title) {
         try {
-            E creation = searchMovieException(title);
+            E creation = searchCreationException(title);
             return creation.getTitle() + " " + creation.getCreator() + " " + creation.getPremiereDate();
-        } catch (MovieNotFoundException e) {
-            return "Movie not found";
+        } catch (CreationNotFoundException e) {
+            return "Creation not found";
         }
 
     }
