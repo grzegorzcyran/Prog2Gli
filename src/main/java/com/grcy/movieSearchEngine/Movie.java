@@ -2,7 +2,7 @@ package com.grcy.movieSearchEngine;
 
 import java.time.LocalDate;
 
-public class Movie {
+public class Movie extends Creation {
     private String title;
     private String director;
     private LocalDate premiereDate;
@@ -13,18 +13,22 @@ public class Movie {
         this.premiereDate = premiereDate;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getCreator() {
         return director;
     }
 
+    @Override
     public LocalDate getPremiereDate() {
         return premiereDate;
     }
 
+    @Override
     public String getDescriptionData() {
         return this.title + " " + this.director + " " + this.premiereDate;
     }
