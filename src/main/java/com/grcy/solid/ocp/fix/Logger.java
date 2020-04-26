@@ -9,6 +9,8 @@ public class Logger {
 
         this.messageLogger = messageLogger;
     }
+
+
     public void log(String message) throws Exception {
         messageLogger.log(message);
     }

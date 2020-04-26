@@ -1,0 +1,2 @@
+OCP
+Zamieniamy obsługę logowania z rozróżnianiem miejsca docelowego (baza danych, konsola) na interfejs w którym definiujemy szablon który musi spełniać metoda do logowania. Następnie piszemy klasy dedykowane pod konkretny sposób logowania - osobną dla bazy, osobną dla konsoli. W głównej klasie Logger definiujemy pole do którego będziemy przekazywać obiekt za pomocą którego będziemy wykonywać logowanie : dbLogger albo consoleLogger i za jego pomocą przekazujemy logowanie do dedykowanej klasy.
