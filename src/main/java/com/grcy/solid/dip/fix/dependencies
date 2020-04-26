@@ -1,0 +1,7 @@
+zależności
+TS zależy bezpośrednio od R
+ale FR też zależy od R więc następuje odwrócenie kierunku zależności
+
+TaskService -> Repository
+
+Repository <- FileRepository

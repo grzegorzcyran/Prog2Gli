@@ -1,0 +1,4 @@
+zależności
+TS zależy bezpośrednio od FR
+
+TaskService -> FileRepository
