@@ -1,11 +1,13 @@
 package com.grcy.serialization;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
 //Niezbędna anotacja dla JAXB
-@XmlRootElement
+@XmlRootElement(name = "person")
 //innterfejs Serializable jest potrzebny do
 //umożliwienia serializacji klasy
 public class Person implements Serializable {
@@ -19,6 +21,8 @@ public class Person implements Serializable {
     private transient int age;
     private String gender;
     private int noOfChildren;
+
+    @JsonIgnore
     private String nationality;
 
     /**
