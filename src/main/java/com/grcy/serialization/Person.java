@@ -1,6 +1,7 @@
 package com.grcy.serialization;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
 //Niezbędna anotacja dla JAXB
@@ -51,6 +52,7 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
+    @XmlTransient
     public int getAge() {
         return age;
     }
